@@ -1,0 +1,118 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    var selection = Umbraco.Content(Guid.Parse("080ada78-88b9-4e5c-ac30-1279f4cdc508"))
+    .Children()
+    .Where(x => x.IsVisible());
+}
+
+<div class="card-deck">
+    @foreach (var item in selection)
+    {
+        <div class="card text-color-dark-purple">
+            <div class="card-header">
+                <h2 style="font-weight:600;">@item.Value("productName")</h2>
+            </div>
+            <div class="card-body">
+                @if (item.Value<string[]>("productContains").Length > 0)
+                {
+                    <ul>
+                        @foreach (var contain in item.Value<string[]>("productContains"))
+                        {
+                            <li>
+                                <p class="text-color-medium-purple" style="font-size:18px; font-weight:400;">
+                                    @contain
+                                </p>
+                            </li>
+                        }
+                    </ul>
+
+                }
+            </div>
+            <div class="card-footer text-center">
+                <div class="priceCard text-color-dark-purple">
+                    @if (item.Value("productPrice").ToString() != "10.000")
+                    {
+                        <p>@item.Value("productPrice")<span class="text-color-Light-purple">DKK /Måned</span></p>
+                    }
+                    else
+                    {
+                        <p>Fra @item.Value("productPrice")<span class="text-color-Light-purple">DKK /Måned</span></p>
+                    }
+
+                    <small class="text-color-medium-purple">Eksl. moms</small>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .card {
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border: none;
+        background: #fff;
+        -webkit-box-shadow: 0px 10px 15px 0px rgba(155,104,158,0.18);
+        -moz-box-shadow: 0px 10px 15px 0px rgba(155,104,158,0.18);
+        box-shadow: 0px 10px 15px 0px rgba(155,104,158,0.18);
+    }
+
+        .card .card-header {
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            background-color: #fff;
+            background-image: url('../../Media/tfpbbrk2/background.png'), linear-gradient(90deg, rgba(155,104,158,1) 0%, rgba(155,104,158,1) 54%, rgba(92,36,95,1) 100%);
+            background-repeat: no-repeat, no-repeat;
+            background-size: cover;
+            
+            height: 10%;
+            border: none;
+        }
+
+    .card-body {
+    }
+
+    .priceCard {
+        background-color: #F5EFF5;
+        border: none;
+        width: 100%;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+
+        .priceCard p {
+            margin: 0px;
+            font-weight: bolder;
+        }
+
+    .text-color-dark-purple {
+        color: #5C245F;
+    }
+
+    .text-color-medium-purple {
+        color: #866F9E;
+    }
+
+    .text-color-Light-purple {
+        color: #9B689E;
+    }
+
+    .card .card-footer {
+        border: none;
+        background-color: #fff;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+</style>
+
+
+
+
