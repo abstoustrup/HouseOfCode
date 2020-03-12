@@ -284,9 +284,14 @@
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="config\logviewer.searches.config.js" />
+    <Content Include="css\Style.css" />
     <Content Include="Global.asax" />
     <Content Include="Icons\icons8-tv-50.png" />
+    <Content Include="Images\background-bottom.PNG" />
+    <Content Include="Images\background-modal.PNG" />
+    <Content Include="Images\background-top.PNG" />
     <Content Include="Media\tfpbbrk2\background.png" />
+    <Content Include="scripts\Navbar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +322,7 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Partials\_Product.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,29 +4,47 @@
     Layout = "Master.cshtml";
 }
 
+    <section>
+        <img style="width: 100%;" src="~/Images/background-top.PNG" />
+    </section>
+
+    <section style="margin-top: 50px;">
+        <div class="container">
+            <h1 class="text-color-dark-purple" style="font-weight:700;">We offer</h1>
+            <h2 style="color: #BAB2BB">The following packages</h2>
+            <div style="margin-top: 60px;">
+                @Html.Partial("_Product")
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 60px;">
+        <div class="container text-center" style="color: #5C245F; font-size: large; padding-left: 14vw; padding-right: 14vw;">
+            <p>
+                Advertising is telling the world how great you are, while publicity is having others
+                tell the world how great you are. Companies and organizations that understand the importance of publicity are generally
+                more successful than those who use advertising alone to reach their target audiences.
+            </p>
+
+            <button type="button" class=" btn btn-rounded"><img src="~/Icons/icons8-tv-50.png" /> Contact</button>
+        </div>
+    </section>
+
+    <section style="margin-top: 150px;">
+        <img style="width: 100%;" src="~/Images/background-bottom.PNG" />
+    </section>
 
 
-    <div class="container">
-        @Html.Partial("_Product")
-    </div>
-
-<div class="container text-center" style="color: #5C245F; font-size:large; margin-top: 60px; padding-left: 5vw; padding-right: 5vw;">
-    <p>Advertising is telling the world how great you are, while publicity is having others
-    tell the world how great you are. Companies and organizations that understand the importance of publicity are generally
-    more successful than those who use advertising alone to reach their target audiences.</p>
-
-    <button type="button" class=" btn btn-rounded"><img src="~/Icons/icons8-tv-50.png" /> Contact</button>
-</div>
 
 
 
 <style>
     .btn-rounded{
         margin-top: 20px;
-        background-color: #9B689E;
+        background-color: #AA81AC;
         color: #fff;
-        border-radius: 25px;
-        padding: 10px 25px;
+        border-radius: 45px;
+        padding: 15px 45px;
         font-size: 20px;
     }
 
