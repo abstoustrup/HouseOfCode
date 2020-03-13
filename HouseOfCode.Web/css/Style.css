@@ -143,7 +143,7 @@ input.form-control,
 input.form-control:focus,
 input.form-control:active {
     background-color: #F5EFF5 !important;
-    outline: none !important;
+    box-shadow: none;
     border: none;
     color: #5C245F;
 }
@@ -156,8 +156,61 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #5C245F !important;
 }
 
+.btn-rounded {
+    margin-top: 20px;
+    border-radius: 45px;
+    padding: 15px 45px;
+    font-size: 20px;
+}
 
+.btn-dark-purple {
+    background-color: #AA81AC;
+    color: #fff;
+}
 
+.btn-dark-purple:hover {
+    background-color: #5C245F;
+    color: #fff;
+}
+
+.btn-form {
+    background-color: #E6DCE6;
+    color: #fff;
+}
+
+    .btn-form:hover {
+        background-color: #ded2de;
+        color: #fff;
+    }
+
+/* Text */
+.landingpage-offer-header-big {
+    font-weight: 700;
+}
+
+.landingpage-offer-header-medium {
+    color: #BAB2BB;
+}
+
+.advert-text {
+    color: #5C245F;
+    font-size: large;
+    padding-left: 14vw;
+    padding-right: 14vw;
+}
+
+.interaction-modal-header {
+    font-weight: 700;
+}
+
+.product-card-header-text {
+    font-weight: 600;
+}
+
+.product-card-body-text {
+    font-size: 15px;
+    font-weight: 400;
+}
 
 
 @media (max-width: 768px) {

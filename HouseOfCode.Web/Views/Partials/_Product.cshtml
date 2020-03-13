@@ -13,7 +13,7 @@
         <div class="col-md-6 col-lg-4 col-xl-3 py-2">
             <div class="card h-100 text-color-dark-purple">
                 <div class="card-header">
-                    <h2 style="font-weight:600;">@item.Value("productName")</h2>
+                    <h2 class="product-card-header-text">@item.Value("productName")</h2>
                 </div>
                 <div class="card-body">
                     @if (item.Value<string[]>("productContains").Length > 0)
@@ -22,7 +22,7 @@
                             @foreach (var contain in item.Value<string[]>("productContains"))
                             {
                                 <li>
-                                    <p class="text-color-medium-purple" style="font-size:15px; font-weight:400;">
+                                    <p class="text-color-medium-purple product-card-body-text">
                                         @contain
                                     </p>
                                 </li>

@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+<nav class="navbar navbar-expand-md navbar-dark bg-nav navbar-custom fixed-top">
+    <div class="container text-center">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">AppCMS</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <span class="navbar-text ml-auto">
+                    Hi @User.Identity.Name
+                </span>
+            }
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SDK's</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link nav-dark-purple" href="#" data-toggle="modal" data-target="#myModal">Sign in</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link nav-dark-purple" href="@Url.Action("Logout", "Members")">Log out</a>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

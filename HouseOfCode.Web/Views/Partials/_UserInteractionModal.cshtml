@@ -1,0 +1,124 @@
+﻿@using HouseOfCode.Web.Controllers
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+
+            <!-- Modal Header -->
+            <div class="modal-header text-center d-block">
+                <div id="signInModalHeader">
+                    <h2 class="modal-title text-color-dark-purple interaction-modal-header">Sign in</h2>
+                </div>
+                <div id="forgotPasswordModalHeader" style="display: none;">
+                    <h2 class="modal-title text-color-dark-purple interaction-modal-header">Forgot password?</h2>
+                </div>
+                <div id="signUpModalHeader" style="display: none;">
+                    <h2 class="modal-title text-color-dark-purple interaction-modal-header" ">Sign Up</h2>
+                </div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-form">
+                    <!--SIGN IN MODAL-->
+                    <div id="signInModal">
+
+                        @using (Ajax.BeginForm("LoginProcedure", "Members", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "loginResult", OnSuccess = "OnSuccess" }))
+                        {
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control form-control-lg" placeholder="Enter email" id="email" name="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password</label>
+                                <input type="password" class="form-control form-control-lg" placeholder="Enter password" id="password" name="Password">
+                            </div>
+                            <div class="text-center">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                                <button type="submit" class=" btn btn-rounded btn-form">Sign In</button>
+                                <div id="loginResult"></div>
+                            </div>
+                        }
+
+                    </div>
+
+                    <script>
+                        function OnSuccess(response) {
+                            if (response.match(/Success/gi)) {
+                                $("#myModal").modal("hide");
+                                location.reload();
+                            }
+                        };
+                    </script>
+
+                    <!--Forgot password modal-->
+                    <div id="forgotPasswordModal" style="display: none;">
+                        <div class="text-center">
+                            <h4>Provide your e-mail and we request a reset link for you.</h4>
+                        </div>
+
+                        <form style="margin-top: 20px;">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control form-control-lg" id="email">
+                            </div>
+                            <div class="text-center" style="margin-top: 75px;">
+                                <button type="submit" class=" btn btn-rounded btn-form">Send instructions</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--Sign Up Modal-->
+                    <div id="signUpModal" style="display: none;">
+                        @using (Ajax.BeginForm("Register", "Members", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "registerResult", OnSuccess = "OnSuccessRegister" }))
+                        {
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control form-control-lg" id="name" name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password</label>
+                                <input type="password" class="form-control form-control-lg" id="password" name="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="repwd">Repeat Password</label>
+                                <input type="password" class="form-control form-control-lg" autofocus id="repassword" name="Repassword">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class=" btn btn-rounded btn-form">Sign Up</button>
+                                <div id="registerResult"></div>
+                            </div>
+                        }
+                    </div>
+                    <script>
+                        function OnSuccessRegister(response) {
+                            if (response.match(/Success/gi)) {
+                                $("#myModal").modal("hide");
+                                location.reload();
+                            } else {
+
+                            }
+                        };
+                    </script>
+                </div>
+            </div>
+
+            <div class="modal-footer text-center d-block">
+                <a id="btnSignUp" href="#" class="form-link">Sign Up</a>
+                <div style="margin-top:10px;"></div>
+                <a id="btnForgotPassword" href="#" class="form-link">Forget password</a>
+            </div>
+        </div>
+    </div>
+
+</div>
